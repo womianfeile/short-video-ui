@@ -73,7 +73,7 @@ export const content = {
     },
   ],
   bottomNav: [
-    { label: "首页↔", active: true },
+    { label: "首页", active: true },
     { label: "朋友" },
     { label: "+" },
     { label: "消息", badge: 87 },

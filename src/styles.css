@@ -119,8 +119,8 @@ button {
   left: 50%;
   top: 48%;
   z-index: 5;
-  width: 96px;
-  height: 96px;
+  width: 84px;
+  height: 84px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -133,9 +133,9 @@ button {
   width: 0;
   height: 0;
   margin-left: 8px;
-  border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent;
-  border-left: 34px solid rgba(255, 255, 255, 0.82);
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 28px solid rgba(255, 255, 255, 0.82);
 }
 
 .top-tabs {
@@ -147,12 +147,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(22px, 8vw, 46px);
-  height: 46px;
-  padding-right: 38px;
+  gap: clamp(22px, 7vw, 40px);
+  height: 42px;
+  padding-right: 34px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: clamp(18px, 5vw, 24px);
-  font-weight: 650;
+  font-size: clamp(16px, 4.35vw, 20px);
+  font-weight: 620;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
   pointer-events: none;
 }
@@ -171,7 +171,7 @@ button {
   position: absolute;
   left: 16%;
   right: 16%;
-  bottom: -12px;
+  bottom: -10px;
   height: 3px;
   border-radius: 999px;
   background: #fff;
@@ -180,31 +180,10 @@ button {
 .top-tabs__search {
   position: absolute;
   right: 2px;
-  width: 30px;
-  height: 30px;
-}
-
-.top-tabs__search::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 18px;
-  height: 18px;
-  border: 4px solid #fff;
-  border-radius: 50%;
-}
-
-.top-tabs__search::after {
-  content: "";
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 15px;
-  height: 4px;
-  border-radius: 999px;
-  transform: rotate(45deg);
-  background: #fff;
+  width: 29px;
+  height: 29px;
+  color: #fff;
+  filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.45));
 }
 
 .right-rail {
@@ -213,18 +192,18 @@ button {
   bottom: calc(118px + env(safe-area-inset-bottom));
   z-index: 12;
   display: flex;
-  width: 64px;
+  width: 58px;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 13px;
 }
 
 .avatar-button {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   padding: 0;
-  border: 3px solid #fff;
+  border: 2.5px solid #fff;
   border-radius: 50%;
   overflow: hidden;
   background: #222;
@@ -238,8 +217,8 @@ button {
 }
 
 .icon-button {
-  width: 64px;
-  min-height: 62px;
+  width: 58px;
+  min-height: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,29 +233,26 @@ button {
 .icon-button__glyph {
   display: grid;
   place-items: center;
-  min-width: 52px;
-  height: 44px;
-  font-size: 42px;
+  min-width: 44px;
+  height: 38px;
   line-height: 1;
   filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.42));
 }
 
-.icon-button:nth-of-type(3) .icon-button__glyph {
-  width: 52px;
-  height: 42px;
-  font-size: 19px;
-  letter-spacing: -2px;
-  border-radius: 50%;
-  color: #686868;
-  background: #fff;
-  text-shadow: none;
-  filter: none;
+.icon-button__glyph svg {
+  width: 38px;
+  height: 38px;
+}
+
+.icon-button:nth-of-type(3) .icon-button__glyph svg {
+  width: 40px;
+  height: 40px;
 }
 
 .icon-button__label {
-  min-height: 20px;
-  font-size: 16px;
-  font-weight: 560;
+  min-height: 18px;
+  font-size: 14px;
+  font-weight: 520;
 }
 
 .icon-button.is-active .icon-button__glyph {
@@ -291,28 +267,37 @@ button {
   z-index: 11;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 0 82px calc(72px + env(safe-area-inset-bottom)) 0;
+  gap: 6px;
+  padding: 0 74px calc(70px + env(safe-area-inset-bottom)) 0;
   color: #fff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
 }
 
 .creator-name {
-  font-size: 21px;
-  font-weight: 780;
+  font-size: 18px;
+  font-weight: 720;
 }
 
 .description {
-  max-width: min(620px, calc(100vw - 92px));
+  max-width: min(620px, calc(100vw - 84px));
   margin: 0;
-  font-size: clamp(18px, 4.7vw, 25px);
-  font-weight: 560;
-  line-height: 1.42;
+  font-size: clamp(15px, 3.9vw, 18px);
+  font-weight: 520;
+  line-height: 1.38;
   word-break: break-word;
 }
 
-.description span {
+.description__more {
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
+  vertical-align: -1px;
+}
+
+.description__more svg {
+  width: 15px;
+  height: 15px;
+  margin-left: 1px;
 }
 
 .notice {
@@ -323,7 +308,7 @@ button {
   overflow: hidden;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 15px;
+  font-size: 13px;
   white-space: nowrap;
   text-overflow: ellipsis;
   background: rgba(0, 0, 0, 0.36);
@@ -333,7 +318,7 @@ button {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(66px + env(safe-area-inset-bottom));
+  bottom: calc(62px + env(safe-area-inset-bottom));
   height: 3px;
   background: rgba(255, 255, 255, 0.18);
 }
@@ -351,14 +336,14 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  height: calc(66px + env(safe-area-inset-bottom));
+  height: calc(62px + env(safe-area-inset-bottom));
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
   padding: 0 10px env(safe-area-inset-bottom);
   color: rgba(255, 255, 255, 0.62);
-  font-size: clamp(17px, 4.7vw, 24px);
-  font-weight: 700;
+  font-size: clamp(15px, 4.1vw, 19px);
+  font-weight: 650;
   background: rgba(9, 9, 9, 0.94);
   text-shadow: none;
 }
@@ -368,7 +353,7 @@ button {
   display: grid;
   place-items: center;
   min-width: 0;
-  height: 56px;
+  height: 52px;
   white-space: nowrap;
 }
 
@@ -378,27 +363,31 @@ button {
 
 .bottom-nav span:nth-child(3) {
   justify-self: center;
-  width: 54px;
-  height: 40px;
-  border: 4px solid #fff;
-  border-radius: 12px;
+  width: 46px;
+  height: 34px;
+  border: 3px solid #fff;
+  border-radius: 10px;
   color: #fff;
-  font-size: 29px;
   line-height: 1;
+}
+
+.bottom-nav span:nth-child(3) svg {
+  width: 22px;
+  height: 22px;
 }
 
 .bottom-nav em {
   position: absolute;
-  right: 4px;
-  top: 2px;
-  min-width: 30px;
-  height: 24px;
-  padding: 0 7px;
+  right: 6px;
+  top: 4px;
+  min-width: 25px;
+  height: 20px;
+  padding: 0 6px;
   border-radius: 999px;
   color: #fff;
-  font-size: 17px;
+  font-size: 14px;
   font-style: normal;
-  line-height: 24px;
+  line-height: 20px;
   text-align: center;
   background: #ff2d55;
 }
@@ -477,13 +466,13 @@ button {
 
 .comment-sheet__search {
   display: grid;
-  grid-template-columns: 1fr 46px 46px;
+  grid-template-columns: 1fr 40px 40px;
   align-items: center;
   gap: 4px;
-  min-height: 58px;
-  padding: 4px 12px 6px 18px;
+  min-height: 52px;
+  padding: 4px 12px 5px 18px;
   border-bottom: 1px solid #f1f1f1;
-  font-size: clamp(18px, 4.7vw, 24px);
+  font-size: clamp(15px, 4vw, 18px);
 }
 
 .comment-sheet__search div {
@@ -499,42 +488,42 @@ button {
   font-weight: 520;
 }
 
-.comment-sheet__search i {
-  display: inline-block;
-  width: 11px;
-  height: 11px;
-  margin-left: 4px;
-  border: 2px solid #1a5d93;
-  border-radius: 50%;
-  vertical-align: 0;
+.comment-sheet__search div svg {
+  margin-left: 3px;
+  color: #1a5d93;
+  vertical-align: -1px;
 }
 
 .round-tool {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   color: #111;
-  font-size: 29px;
   background: #f5f5f5;
 }
 
+.round-tool svg {
+  width: 19px;
+  height: 19px;
+}
+
 .comment-tabs {
-  height: 52px;
+  height: 46px;
   display: flex;
   align-items: flex-end;
   gap: 42px;
-  padding: 0 20px;
+  padding: 0 18px;
   border-bottom: 1px solid #ececec;
   color: #111;
-  font-size: 20px;
-  font-weight: 740;
+  font-size: 16px;
+  font-weight: 690;
 }
 
 .comment-tabs span {
   position: relative;
-  height: 44px;
+  height: 38px;
   display: flex;
   align-items: center;
 }
@@ -553,20 +542,20 @@ button {
 .comment-list {
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 18px 12px 20px 16px;
+  padding: 14px 12px 18px 16px;
   -webkit-overflow-scrolling: touch;
 }
 
 .comment-item {
   display: grid;
-  grid-template-columns: 52px 1fr 46px;
-  gap: 12px;
-  padding: 0 0 24px;
+  grid-template-columns: 42px 1fr 38px;
+  gap: 10px;
+  padding: 0 0 20px;
 }
 
 .comment-item__avatar {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
   background: #eee;
@@ -577,32 +566,45 @@ button {
 }
 
 .comment-item__name {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: #a0a0a6;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .comment-item p {
   margin: 0;
   color: #121212;
-  font-size: clamp(18px, 4.4vw, 22px);
-  line-height: 1.5;
+  font-size: clamp(14px, 3.8vw, 16px);
+  line-height: 1.46;
   word-break: break-word;
 }
 
 .comment-item__meta {
   display: flex;
-  gap: 16px;
-  margin-top: 10px;
+  gap: 14px;
+  margin-top: 7px;
   color: #aaa;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .comment-item__body button {
-  margin-top: 13px;
+  margin-top: 10px;
   padding: 0;
   color: #777;
-  font-size: 16px;
+  font-size: 13px;
+}
+
+.reply-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  line-height: 1.2;
+}
+
+.reply-toggle svg {
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
 }
 
 .comment-item__like {
@@ -610,45 +612,53 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  padding-top: 42px;
+  padding-top: 34px;
   color: #8e8e95;
-  font-size: 25px;
+}
+
+.comment-item__like svg {
+  width: 21px;
+  height: 21px;
 }
 
 .comment-item__like span {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .comment-input {
-  height: calc(72px + env(safe-area-inset-bottom));
+  height: calc(64px + env(safe-area-inset-bottom));
   display: grid;
-  grid-template-columns: 1fr 42px 42px 42px;
+  grid-template-columns: 1fr 36px 36px 36px;
   align-items: center;
   gap: 4px;
-  padding: 10px 18px calc(10px + env(safe-area-inset-bottom));
+  padding: 9px 18px calc(9px + env(safe-area-inset-bottom));
   border-top: 1px solid #ededed;
   background: #fff;
 }
 
 .comment-input span {
   min-width: 0;
-  height: 50px;
+  height: 44px;
   display: flex;
   align-items: center;
-  padding: 0 18px;
+  padding: 0 16px;
   border-radius: 999px;
   color: #858585;
-  font-size: clamp(17px, 4.6vw, 22px);
+  font-size: clamp(15px, 4vw, 18px);
   background: #f4f4f4;
 }
 
 .comment-input i {
   display: grid;
   place-items: center;
-  height: 42px;
+  height: 36px;
   color: #4a4a50;
-  font-size: 27px;
   font-style: normal;
+}
+
+.comment-input i svg {
+  width: 24px;
+  height: 24px;
 }
 
 @media (min-aspect-ratio: 9 / 16) {
@@ -661,13 +671,17 @@ button {
 
 @media (max-height: 680px) {
   .right-rail {
-    gap: 10px;
-    bottom: calc(104px + env(safe-area-inset-bottom));
+    gap: 9px;
+    bottom: calc(100px + env(safe-area-inset-bottom));
   }
 
   .icon-button__glyph {
-    height: 38px;
-    font-size: 36px;
+    height: 34px;
+  }
+
+  .icon-button__glyph svg {
+    width: 35px;
+    height: 35px;
   }
 
   .bottom-meta {

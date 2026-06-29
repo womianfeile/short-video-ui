@@ -1,5 +1,19 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import {
+  AtSign,
+  ChevronDown,
+  Expand,
+  Heart,
+  Image,
+  MessageCircleMore,
+  Plus,
+  Search,
+  Share2,
+  Smile,
+  Star,
+  X,
+} from "lucide-react";
 import { content } from "./content";
 import "./styles.css";
 
@@ -120,7 +134,7 @@ function TopTabs() {
           {tab}
         </span>
       ))}
-      <span className="top-tabs__search" aria-hidden="true" />
+      <Search className="top-tabs__search" aria-hidden="true" strokeWidth={2.45} />
     </header>
   );
 }
@@ -134,13 +148,17 @@ function RightRail({ liked, setLiked, openComments }) {
         <img src={content.profile.avatar} alt="" />
       </button>
       <IconButton label={likeLabel} active={liked} onClick={() => setLiked((value) => !value)}>
-        ♥
+        <Heart fill="currentColor" strokeWidth={2.15} />
       </IconButton>
       <IconButton label={compactCount(content.counts.comment)} onClick={openComments}>
-        ●●●
+        <MessageCircleMore strokeWidth={2.25} />
       </IconButton>
-      <IconButton label={compactCount(content.counts.favorite)}>★</IconButton>
-      <IconButton label={compactCount(content.counts.share)}>↗</IconButton>
+      <IconButton label={compactCount(content.counts.favorite)}>
+        <Star fill="currentColor" strokeWidth={2.05} />
+      </IconButton>
+      <IconButton label={compactCount(content.counts.share)}>
+        <Share2 strokeWidth={2.3} />
+      </IconButton>
     </aside>
   );
 }
@@ -163,7 +181,11 @@ function BottomMeta({ videoRef }) {
     <section className="bottom-meta" aria-label="视频信息">
       <div className="creator-name">@{content.profile.name}</div>
       <p className="description">
-        {content.description.text} {content.description.tags.map((tag) => `#${tag}`).join(" ")} <span>展开⌄</span>
+        {content.description.text} {content.description.tags.map((tag) => `#${tag}`).join(" ")}
+        <span className="description__more">
+          展开
+          <ChevronDown aria-hidden="true" strokeWidth={2.2} />
+        </span>
       </p>
       <div className="notice">作者声明：虚构演绎，仅供娱乐 ›</div>
       <div className="progress-track" aria-hidden="true">
@@ -172,7 +194,7 @@ function BottomMeta({ videoRef }) {
       <nav className="bottom-nav" aria-label="底部导航">
         {content.bottomNav.map((item) => (
           <span key={item.label} className={item.active ? "is-active" : ""}>
-            {item.label}
+            {item.label === "+" ? <Plus aria-hidden="true" strokeWidth={2.8} /> : item.label}
             {item.badge && <em>{item.badge}</em>}
           </span>
         ))}
@@ -192,13 +214,13 @@ function CommentSheet({ open, onClose }) {
           <div>
             <span>大家都在搜：</span>
             <strong>{content.searchTopic}</strong>
-            <i aria-hidden="true" />
+            <Search aria-hidden="true" size={14} strokeWidth={2.2} />
           </div>
           <button type="button" className="round-tool" aria-label="放大评论区">
-            ⛶
+            <Expand aria-hidden="true" strokeWidth={2.15} />
           </button>
           <button type="button" className="round-tool" aria-label="关闭评论" onClick={onClose}>
-            ×
+            <X aria-hidden="true" strokeWidth={2.25} />
           </button>
         </header>
         <div className="comment-tabs">
@@ -215,10 +237,15 @@ function CommentSheet({ open, onClose }) {
                   <span>{comment.time}</span>
                   <span>回复</span>
                 </div>
-                {comment.replyHint && <button type="button">{comment.replyHint}⌄</button>}
+                {comment.replyHint && (
+                  <button className="reply-toggle" type="button">
+                    {comment.replyHint}
+                    <ChevronDown aria-hidden="true" strokeWidth={2} />
+                  </button>
+                )}
               </div>
               <div className="comment-item__like" aria-label={`${comment.likes}赞`}>
-                ♡
+                <Heart aria-hidden="true" strokeWidth={1.9} />
                 <span>{comment.likes}</span>
               </div>
             </article>
@@ -226,9 +253,15 @@ function CommentSheet({ open, onClose }) {
         </div>
         <footer className="comment-input" aria-hidden="true">
           <span>分享你此刻的想法</span>
-          <i>▧</i>
-          <i>@</i>
-          <i>☺</i>
+          <i>
+            <Image strokeWidth={2.1} />
+          </i>
+          <i>
+            <AtSign strokeWidth={2.1} />
+          </i>
+          <i>
+            <Smile strokeWidth={2.1} />
+          </i>
         </footer>
       </section>
     </div>

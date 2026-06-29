@@ -24,6 +24,7 @@
 
 ### 当前实现
 - 技术栈：React / Vite。
+- 图标库：`lucide-react`，用于主页右侧互动按钮、顶部搜索、底部加号、评论区工具按钮、输入栏图标和展开箭头等；避免继续使用字符替代图标。
 - 运行方式：PWA / 手机浏览器全屏访问。
 - 主要页面：单条竖屏视频页。
 - PWA：包含 `public/manifest.webmanifest` 和 `public/sw.js`。
@@ -37,6 +38,10 @@
 - 静态素材放在 `public/media/`。
 - 默认视频路径为 `/media/main-video.mp4`，用户后续放入自己的视频即可。
 - 默认视频文件位置为 `public/media/main-video.mp4`；如果文件名不同，需要同步修改 `src/content.js` 里的 `video.src`。
+- 已按用户提供的同机抖音截图，对主页和评论区做过一轮视觉减重：
+  - 右侧互动图标、顶部搜索、底部导航、播放按钮、作者名与简介字号已缩小，线条减细。
+  - 评论区顶部、评论正文、头像、右侧点赞、输入栏和底部输入图标已缩小，避免“笨重/老人模式”观感。
+  - “展开”和“展开 N 条回复”旁边的字符箭头已替换为 `ChevronDown` SVG，并用 `inline-flex` 对齐文字。
 
 ### 关键文件
 - `plan.md`：原 Plan 模式确定的完整执行方案；本地参考文件，不提交进 Git。
@@ -63,6 +68,7 @@
 - 旧会话中已完成主页与评论抽屉的浏览器视觉检查。
 - 迁移到 `D:\Projects\short-video-ui` 后，已运行 `npm run build`，构建通过。
 - 迁移后首次接手时当前目录还不是 Git 仓库；现已初始化为 Git 工程。
+- 接入 `lucide-react` 并完成主页/评论区减重后，已再次运行 `npm run build`，构建通过。
 
 ### 本机注意事项
 - 当前 Codex 沙箱里的 Windows PowerShell 可能无法启动，报 `CreateProcessAsUserW failed: 5`。
