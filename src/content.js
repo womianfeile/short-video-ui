@@ -1,0 +1,82 @@
+export const content = {
+  video: {
+    src: "/media/main-video.mp4",
+    poster: "",
+  },
+  tabs: ["精选", "关注", "推荐"],
+  activeTab: "推荐",
+  profile: {
+    name: "陈焱焱",
+    avatar: "/media/avatar-creator.svg",
+  },
+  description: {
+    text: "哪有大半夜还这么大太阳的 根本就是提前录好的录像",
+    tags: ["原创文案", "美加墨世界杯", "短片道具"],
+  },
+  counts: {
+    like: 16000,
+    comment: 451,
+    favorite: 787,
+    share: 12000,
+  },
+  searchTopic: "世界杯",
+  danmaku: {
+    defaultDuration: 6,
+    items: [
+      { text: "这段太像真的了", at: 1.2, track: 1, duration: 6 },
+      { text: "我也想看后续", at: 3.4, track: 2, duration: 6.5 },
+      { text: "评论区有点热闹", at: 5.5, track: 3, duration: 5.8 },
+      { text: "这球衣好眼熟", at: 8.4, track: 1, duration: 6.2 },
+      { text: "演员操作自然一点就行", at: 11.2, track: 2, duration: 7 },
+    ],
+  },
+  comments: [
+    {
+      avatar: "/media/avatar-comment-1.svg",
+      name: "不见神医",
+      text: "来来来，必须跟你掰扯一下。一个人不断的防倒，必然无无轮开，全身功画将永远该上来，你的赢你的眼，好像再不可能不行，你的赢你的赢，只要薪酬就一定会灵。",
+      time: "06-15",
+      likes: 46,
+      replyHint: "展开4条回复",
+    },
+    {
+      avatar: "/media/avatar-comment-2.svg",
+      name: "黑尼霸霸一坐独",
+      text: "他们带我来的，我也不知道怎么回事啊！",
+      time: "06-15",
+      likes: 18,
+      replyHint: "展开2条回复",
+    },
+    {
+      avatar: "/media/avatar-comment-3.svg",
+      name: "今天也很会看球",
+      text: "这段应该是提前录好的，光线和时间完全对不上，但拍出来还挺像那么回事。",
+      time: "06-16",
+      likes: 128,
+      replyHint: "展开8条回复",
+    },
+    {
+      avatar: "/media/avatar-comment-1.svg",
+      name: "小号不发言",
+      text: "右边按钮留着就很真实，演员只点点赞和评论就够了。",
+      time: "06-16",
+      likes: 9,
+      replyHint: "",
+    },
+    {
+      avatar: "/media/avatar-comment-2.svg",
+      name: "看热闹专用",
+      text: "大家都在搜那里可以换成剧情里的关键词，镜头扫过去一眼就能看懂。",
+      time: "06-17",
+      likes: 31,
+      replyHint: "展开1条回复",
+    },
+  ],
+  bottomNav: [
+    { label: "首页↔", active: true },
+    { label: "朋友" },
+    { label: "+" },
+    { label: "消息", badge: 87 },
+    { label: "我" },
+  ],
+};
