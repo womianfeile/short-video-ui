@@ -27,7 +27,7 @@ http://你的电脑IP:5173
 
 主要内容都在 `src/content.js`：
 
-- `video.src`：主视频路径，默认是 `/media/main-video.mp4`
+- `video.src`：主视频路径，默认是 `asset("media/main-video.mp4")`
 - `profile.avatar`、`profile.name`：头像和作者名
 - `description.text`、`description.tags`：底部简介和话题
 - `counts`：点赞、评论、收藏、分享数量
@@ -41,7 +41,7 @@ http://你的电脑IP:5173
 public/media/main-video.mp4
 ```
 
-如果文件名不同，就同步修改 `src/content.js` 里的 `video.src`。
+如果文件名不同，就同步修改 `src/content.js` 里的 `video.src`，例如 `asset("media/your-video.mp4")`。
 
 ## 构建
 
@@ -50,3 +50,7 @@ npm run build
 ```
 
 构建产物在 `dist/`。
+
+## GitHub Pages
+
+推送到 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pages。

@@ -279,25 +279,40 @@ button {
 }
 
 .description {
+  position: relative;
   max-width: min(620px, calc(100vw - 84px));
   margin: 0;
   font-size: clamp(15px, 3.9vw, 18px);
   font-weight: 520;
   line-height: 1.38;
+}
+
+.description__text {
+  display: -webkit-box;
+  max-height: 2.76em;
+  overflow: hidden;
+  padding-right: 3.65em;
   word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .description__more {
-  display: inline-flex;
-  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: baseline;
+  height: 1.38em;
+  line-height: 1.38;
   white-space: nowrap;
-  vertical-align: -1px;
 }
 
 .description__more svg {
   width: 15px;
   height: 15px;
   margin-left: 1px;
+  transform: translateY(2px);
 }
 
 .notice {

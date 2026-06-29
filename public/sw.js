@@ -1,5 +1,7 @@
 const CACHE_NAME = "short-video-shooting-ui-v1";
-const ASSETS = ["/", "/manifest.webmanifest", "/icons/icon.svg"];
+const scope = new URL(self.registration.scope);
+const ASSETS = ["", "manifest.webmanifest", "icons/icon.svg"].map((path) => new URL(path, scope).pathname);
+const FALLBACK_URL = new URL("", scope).pathname;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -22,7 +24,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
-      return fetch(event.request).catch(() => caches.match("/"));
+      return fetch(event.request).catch(() => caches.match(FALLBACK_URL));
     }),
   );
 });

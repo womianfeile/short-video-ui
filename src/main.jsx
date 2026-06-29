@@ -181,7 +181,9 @@ function BottomMeta({ videoRef }) {
     <section className="bottom-meta" aria-label="视频信息">
       <div className="creator-name">@{content.profile.name}</div>
       <p className="description">
-        {content.description.text} {content.description.tags.map((tag) => `#${tag}`).join(" ")}
+        <span className="description__text">
+          {content.description.text} {content.description.tags.map((tag) => `#${tag}`).join(" ")}
+        </span>
         <span className="description__more">
           展开
           <ChevronDown aria-hidden="true" strokeWidth={2.2} />
@@ -291,6 +293,6 @@ createRoot(document.getElementById("root")).render(<App />);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL }).catch(() => {});
   });
 }

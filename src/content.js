@@ -1,13 +1,15 @@
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export const content = {
   video: {
-    src: "/media/main-video.mp4",
+    src: asset("media/main-video.mp4"),
     poster: "",
   },
   tabs: ["精选", "关注", "推荐"],
   activeTab: "推荐",
   profile: {
     name: "陈焱焱",
-    avatar: "/media/avatar-creator.svg",
+    avatar: asset("media/avatar-creator.svg"),
   },
   description: {
     text: "哪有大半夜还这么大太阳的 根本就是提前录好的录像",
@@ -32,7 +34,7 @@ export const content = {
   },
   comments: [
     {
-      avatar: "/media/avatar-comment-1.svg",
+      avatar: asset("media/avatar-comment-1.svg"),
       name: "不见神医",
       text: "来来来，必须跟你掰扯一下。一个人不断的防倒，必然无无轮开，全身功画将永远该上来，你的赢你的眼，好像再不可能不行，你的赢你的赢，只要薪酬就一定会灵。",
       time: "06-15",
@@ -40,7 +42,7 @@ export const content = {
       replyHint: "展开4条回复",
     },
     {
-      avatar: "/media/avatar-comment-2.svg",
+      avatar: asset("media/avatar-comment-2.svg"),
       name: "黑尼霸霸一坐独",
       text: "他们带我来的，我也不知道怎么回事啊！",
       time: "06-15",
@@ -48,7 +50,7 @@ export const content = {
       replyHint: "展开2条回复",
     },
     {
-      avatar: "/media/avatar-comment-3.svg",
+      avatar: asset("media/avatar-comment-3.svg"),
       name: "今天也很会看球",
       text: "这段应该是提前录好的，光线和时间完全对不上，但拍出来还挺像那么回事。",
       time: "06-16",
@@ -56,7 +58,7 @@ export const content = {
       replyHint: "展开8条回复",
     },
     {
-      avatar: "/media/avatar-comment-1.svg",
+      avatar: asset("media/avatar-comment-1.svg"),
       name: "小号不发言",
       text: "右边按钮留着就很真实，演员只点点赞和评论就够了。",
       time: "06-16",
@@ -64,7 +66,7 @@ export const content = {
       replyHint: "",
     },
     {
-      avatar: "/media/avatar-comment-2.svg",
+      avatar: asset("media/avatar-comment-2.svg"),
       name: "看热闹专用",
       text: "大家都在搜那里可以换成剧情里的关键词，镜头扫过去一眼就能看懂。",
       time: "06-17",
