@@ -1,6 +1,6 @@
-const CACHE_NAME = "short-video-shooting-ui-v1";
+const CACHE_NAME = "short-video-shooting-ui-v2";
 const scope = new URL(self.registration.scope);
-const ASSETS = ["", "manifest.webmanifest", "icons/icon.svg"].map((path) => new URL(path, scope).pathname);
+const ASSETS = ["manifest.webmanifest", "icons/icon.svg"].map((path) => new URL(path, scope).pathname);
 const FALLBACK_URL = new URL("", scope).pathname;
 
 self.addEventListener("install", (event) => {
@@ -14,17 +14,23 @@ self.addEventListener("activate", (event) => {
     caches
       .keys()
       .then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
-      .then(() => self.clients.claim()),
+      .then(() => self.clients.claim())
+      .then(() => self.clients.matchAll({ type: "window" }))
+      .then((clients) => Promise.all(clients.map((client) => client.navigate(client.url)))),
   );
 });
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
+  if (event.request.mode === "navigate") {
+    event.respondWith(fetch(event.request).catch(() => caches.match(FALLBACK_URL)));
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).catch(() => caches.match(FALLBACK_URL));
-    }),
+    caches
+      .match(event.request)
+      .then((cached) => cached || fetch(event.request)),
   );
 });
