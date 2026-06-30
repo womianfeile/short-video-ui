@@ -49,17 +49,12 @@ function PlayGlyph() {
 function VideoStage({ isPlaying, setIsPlaying, videoRef }) {
   const [videoError, setVideoError] = useState(false);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video || videoError) return;
-
-    video.muted = true;
-    video.play().catch(() => setIsPlaying(false));
-  }, [setIsPlaying, videoError, videoRef]);
-
   const togglePlayback = async () => {
     const video = videoRef.current;
     if (!video || videoError) return;
+
+    video.muted = false;
+    video.volume = 1;
 
     if (video.paused) {
       try {
@@ -79,8 +74,6 @@ function VideoStage({ isPlaying, setIsPlaying, videoRef }) {
         className="video-stage__media"
         src={content.video.src}
         poster={content.video.poster}
-        autoPlay
-        muted
         playsInline
         loop
         preload="auto"
